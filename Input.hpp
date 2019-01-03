@@ -17,7 +17,6 @@ Sets<T> load_from_csv_file(std::istream& input) {
 	tmp.A.data().resize(matrix_size);
 	for (auto& row : tmp.A.data())
 		row.resize(matrix_size);
-	tmp.B.data().resize(1);
 
 	for (auto& row : tmp.A.data()) {
 		for (auto& element : row) {
@@ -26,7 +25,7 @@ Sets<T> load_from_csv_file(std::istream& input) {
 		}
 		input.ignore(1);
 		input >> right;
-		tmp.B[0].push_back(right);
+		tmp.B.push_back(right);
 	}
 
 	return tmp;
