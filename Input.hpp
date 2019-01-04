@@ -32,10 +32,10 @@ Sets<T> load_from_csv_file(std::istream& input) {
 }
 
 template <typename T>
-Sets<T> load_from_csv_file(const std::string &filePath) {
+Sets<T> load_from_csv_file(std::string filePath) {
 	std::fstream file;
 	file.open(filePath);
 	if (!file.is_open())
 		throw std::runtime_error("Couldn't open" + filePath + "file!\n");
-	return 
+	return load_from_csv_file<T>(file);
 }
